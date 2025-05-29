@@ -11,6 +11,9 @@ import { fileURLToPath } from 'url';
 export default defineConfig({
 	integrations: [react()],
 
+	site: 'https://muhammadedowardaya.github.io',
+	base: 'to-do-list',
+
 	vite: {
 		plugins: [tailwindcss()],
 		resolve: {
