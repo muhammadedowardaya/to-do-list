@@ -67,7 +67,7 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 				className={`relative ${
 					isDone || outOfDate ? 'bg-slate-900 text-white/10' : className
 				}  p-4 md:p-6 rounded-2xl w-full h-max flex-none select-none overflow-hidden
-                    grid grid-rows-3 grid-cols-[70%_30%]
+                    grid grid-rows-4 min-[400px]:grid-rows-3 grid-cols-[70%_30%]
                 `}
 			>
 				<h3
@@ -85,19 +85,26 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 				>
 					{description}
 				</p>
-				<p aria-label="due date" className="col-start-1 row-start-3 mt-auto">
+				<p
+					aria-label="due date"
+					className={`${
+						outOfDate ? 'text-white/30' : 'text-white'
+					} col-start-1 row-start-3 mt-auto`}
+				>
 					Deadline :{' '}
-					<strong className="border-2 border-white text-white pt-1 px-1 font-special-elite">
+					<strong
+						className={`border ${
+							outOfDate ? 'border-white/30' : 'border-white'
+						} pt-1 px-1 font-special-elite`}
+					>
 						{new Date(dueDate).toLocaleDateString('id-ID')}
 					</strong>
 				</p>
-				{isDone ? (
+				{isDone || outOfDate ? (
 					<button
 						onClick={() => handleShowAlertDelete(id)}
 						aria-label="hapus tugas"
-						className={`${
-							outOfDate ? 'hidden' : ''
-						} absolute top-0 right-0 text-xs md:text-sm lg:text-base rounded-bl-full py-2 px-5 font-semibold bg-red-600 text-white appearance-none m-0`}
+						className={` absolute top-0 right-0 text-xs md:text-sm lg:text-base rounded-bl-full py-2 px-5 font-semibold bg-red-600 text-white appearance-none m-0`}
 					>
 						Hapus
 					</button>
@@ -151,7 +158,7 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 						role="group"
 						className={`${
 							outOfDate ? 'hidden' : ''
-						} col-start-2 row-start-3 ml-auto mt-auto text-sm md:text-base font-semibold w-max py-1 px-4 rounded-full flex items-center gap-2 bg-sky-50 text-[#171717]`}
+						} col-start-1 min-[400px]:col-start-2 row-start-4 col-span-2 min-[400px]:col-span-1 min-[400px]:row-start-3 ml-auto mt-auto text-sm md:text-base font-semibold w-max py-1 px-4 rounded-full flex items-center gap-2 bg-sky-50 text-[#171717]`}
 					>
 						<label htmlFor={`mark-task-${id}`}>Tandai</label>
 						<input
