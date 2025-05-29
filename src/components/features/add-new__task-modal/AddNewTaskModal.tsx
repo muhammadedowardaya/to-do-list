@@ -60,7 +60,7 @@ const AddNewTaskModal = ({ className }: { className?: string }) => {
 			</DrawerTrigger>
 			<DrawerContent className="min-h-[95svh] min-[360px]:min-h-max mb-4 min-[360px]:mb-6">
 				<DrawerHeader
-					className={`text-left hidden min-[400px]:block min-[400px]:pb-[30px]`}
+					className={`text-left hidden min-[400px]:block min-[600px]:pb-[30px]`}
 				>
 					<DrawerTitle>Buat tugas baru</DrawerTitle>
 					<DrawerDescription>
