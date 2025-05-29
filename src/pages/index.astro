@@ -1,11 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Navbar from '@/components/features/navbar/Navbar';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '@/components/features/header/Header';
+import Tasks from '@/components/features/tasks/Tasks';
+import AskUsername from '@/components/features/ask-username/AskUsername';
 ---
 
 <Layout>
-	<Welcome />
+	<div
+		class="w-svw min-h-svh bg-slate-50 text-[#171717] p-6 md:py-12 md:px-20 lg:px-80 relative"
+	>
+		<Navbar client:only="react" />
+		<Header client:only="react" />
+		<Tasks client:only="react" />
+
+		<AskUsername client:load />
+	</div>
 </Layout>
