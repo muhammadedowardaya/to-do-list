@@ -64,7 +64,7 @@ const Navbar = () => {
 					/>
 					<AddNewTaskModal className="button-icon" />
 				</div>
-				<SettingMenu className="ext-2xl md:text-3xl lg:text-2xl shadow py-[4px] px-[6px]" />
+				<SettingMenu className="text-2xl md:text-3xl lg:text-2xl shadow py-[4px] px-[6px]" />
 			</div>
 			<AnimatePresence>
 				{open && (
