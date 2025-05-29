@@ -67,7 +67,11 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 				className={`relative ${
 					isDone || outOfDate ? 'bg-slate-900 text-white/10' : className
 				}  p-4 md:p-6 rounded-2xl w-full h-max flex-none select-none overflow-hidden
-                    grid grid-rows-4 min-[400px]:grid-rows-3 grid-cols-[70%_30%]
+                    grid ${
+											outOfDate
+												? 'grid-rows-[max-content_max-content_40px]'
+												: 'grid-rows-[max-content_max-content_40px_40px]'
+										} min-[400px]:grid-rows-3 grid-cols-[70%_30%]
                 `}
 			>
 				<h3
@@ -88,13 +92,13 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 				<p
 					aria-label="due date"
 					className={`${
-						outOfDate ? 'text-white/30' : 'text-white'
+						outOfDate || isDone ? 'text-white/30' : 'text-white'
 					} col-start-1 row-start-3 mt-auto text-xs md:text-sm lg:text-base`}
 				>
 					Deadline :{' '}
 					<strong
 						className={`border ${
-							outOfDate ? 'border-white/30' : 'border-white'
+							outOfDate || isDone ? 'border-white/30' : 'border-white'
 						} pt-1 px-1 font-special-elite`}
 					>
 						{new Date(dueDate).toLocaleDateString('id-ID')}
@@ -136,7 +140,7 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 						aria-label={`Aksi untuk tugas ${name}`}
 						className={`${
 							outOfDate ? 'hidden' : ''
-						} col-start-2 row-start-3 ml-auto mt-auto text-xs md:text-sm lg:text-base font-semibold flex items-center w-max rounded-full text-[#171717]`}
+						} col-start-1 min-[400px]:col-start-2 row-start-4 col-span-2 min-[400px]:col-span-1 min-[400px]:row-start-3 ml-auto mt-auto text-xs md:text-sm lg:text-base font-semibold flex items-center w-max rounded-full text-[#171717]`}
 					>
 						<button
 							onClick={() => handleShowAlertDelete(id)}
