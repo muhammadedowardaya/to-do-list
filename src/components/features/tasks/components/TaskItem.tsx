@@ -89,7 +89,7 @@ const TaskItem = ({ id, className }: TaskItemProps) => {
 					aria-label="due date"
 					className={`${
 						outOfDate ? 'text-white/30' : 'text-white'
-					} col-start-1 row-start-3 mt-auto`}
+					} col-start-1 row-start-3 mt-auto text-xs md:text-sm lg:text-base`}
 				>
 					Deadline :{' '}
 					<strong
